@@ -1,0 +1,58 @@
+<form novalidate [formGroup]="formGarbage">
+    <div *ngIf="!isAdd"class="form-group input-group mb-3 " >
+        <div class="input-group-prepend">
+          <span class="input-group-text"><i class="fa fa-key"></i></span>
+        </div>
+        <input [readonly]="true" class="form-control" type="text" 
+          placeholder="Code" [(ngModel)]="garbage.GarbageCode" name="code" formControlName="code"> 
+       </div>
+  <div class="form-group input-group mb-3 ">
+    <div class="input-group-prepend">
+      <span class="input-group-text"><i class="fa fa-city"></i></span>
+    </div>
+    <input class="form-control" type="text" aria-describedby="firstNameHelp" [ngClass]="{
+        'is-invalid':formGarbage.controls.city.invalid && formGarbage.controls.city.dirty,
+        'is-valid':formGarbage.controls.city.valid && formGarbage.controls.city.dirty }" placeholder="City" [(ngModel)]="garbage.City"
+      name="city" formControlName="city">
+    <div class="valid-feedback">Valid.</div>
+    <div class="invalid-feedback">Please fill out this field.</div>
+  </div>
+  <div class="form-group input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text"><i class="fa fa-map-marker"></i></span>
+      </div>
+      <input class="form-control" type="text" [ngClass]="{
+            'is-invalid':formGarbage.controls.area.invalid && formGarbage.controls.area.dirty,
+            'is-valid':formGarbage.controls.area.valid && formGarbage.controls.area.dirty}" placeholder="Area"
+        name="area" [(ngModel)]="garbage.Area" formControlName="area">
+    <div class="valid-feedback">Valid.</div>
+    <div class="invalid-feedback">Please fill out this field.</div>
+  </div>
+  <div class="form-group input-group mb-3">
+
+      <div class="input-group-prepend">
+        <span class="input-group-text"><i class="fa fa-map-marker"></i></span>
+      </div>
+      <input class="form-control" type="text" [ngClass]="{
+              'is-invalid':formGarbage.controls.street.invalid && formGarbage.controls.street.dirty,
+              'is-valid':formGarbage.controls.street.valid && formGarbage.controls.street.dirty}" id="street" placeholder="Street"
+        name="street" required [(ngModel)]="garbage.Street" formControlName="street">
+
+    <div class="valid-feedback">Valid.</div>
+    <div class="invalid-feedback">Please fill out this field.</div>
+  </div>
+  <div class="form-group input-group mb-3">
+
+      <div class="input-group-prepend">
+        <span class="input-group-text"><i class="fas fa-trash-alt"></i></span>
+      </div>
+      <input class="form-control" type="text" [ngClass]="{
+              'is-invalid':formGarbage.controls.sensorName.invalid && formGarbage.controls.sensorName.dirty,
+              'is-valid':formGarbage.controls.sensorName.valid && formGarbage.controls.sensorName.dirty}" id="sensorName" placeholder="Sensor Name"
+        name="sensorName" required [(ngModel)]="garbage.SensorName" formControlName="sensorName">
+
+    <div class="valid-feedback">Valid.</div>
+    <div class="invalid-feedback">Please fill out this field.</div>
+  </div>
+  <button class="btn btn-primary" (click)="addOrUpdate()">{{(isAdd)?'Add':'Update'}}</button>
+</form>

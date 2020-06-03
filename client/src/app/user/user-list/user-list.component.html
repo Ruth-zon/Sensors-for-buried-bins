@@ -1,0 +1,46 @@
+<div class="container">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Password</th>
+        <th>Job</th>
+        <th>Phone</th>
+        <th>Area</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users;let i = index">
+        <td>{{user.Id}}</td>
+        <td>{{user.FirstName}}</td>
+        <td>{{user.LastName}}</td>
+        <td>{{user.Password}}</td>
+        <td>{{user.Job}}</td>
+        <td>{{user.Phone}}</td>
+        <td>{{user.Area}}</td>
+        <td><i (click)="openUpdate(user)" [style.color]="overEdit==i?'rgb(65, 121, 240)':'grey'" (mouseover)="overEdit=i" (mouseout)="overEdit=-1" class="fa fa-pencil-alt"></i></td>
+        <td><i (click)="delete(user)"  [style.color]="overDel==i?'rgb(65, 121, 240)':'grey'" (mouseover)="overDel=i" (mouseout)="overDel=-1" class="fas fa-trash-alt"></i></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+<!-- update -->
+  <div *ngIf="isOpenUpdate" class="swal2-container swal2-center swal2-fade swal2-shown" style="overflow-y: auto;">
+    <div aria-labelledby="swal2-title" aria-describedby="swal2-content" class="swal2-popup swal2-modal swal2-show" tabindex="-1"
+      role="dialog" aria-live="assertive" aria-modal="true" style="display: flex;">
+
+      <div class="swal2-header">
+        <h1><b>Update</b></h1>
+        <button (click)="isOpenUpdate=false" type="button" class="swal2-close" aria-label="Close this dialog" style="display: flex;">×</button>
+      </div>
+      <div class="swal2-icon swal2-info swal2-animate-info-icon" style="display: flex;"></div>
+      <app-add-user (isUpdated)="update()" [user]='currentUser'></app-add-user>
+    </div>
+  </div>
+
+</div>

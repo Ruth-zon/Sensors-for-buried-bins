@@ -1,0 +1,28 @@
+.wapper{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    
+}
+.box40 {
+    display: flex;
+    flex-basis: 40%;
+}
+.box20{
+    display: flex;
+    flex-basis: 20%;
+}
+.box10{
+    display: flex;
+    flex-basis:10%;
+}
+.boxDetails {
+    display: flex;
+    flex-basis: 80%;
+}
+.border {
+    margin: 5px;
+}
+span{
+    margin:auto;
+}

@@ -1,0 +1,23 @@
+<div class="page-layout">
+  <header>
+    <div class=" input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text"><i class="fa fa-search"></i></span>
+      </div>
+      <input placeholder="Search" type="text" class="form-control" [(ngModel)]="textToSearch">
+    </div>
+  </header>
+  <section>
+    <div class="wapper">
+      <h3 class="box20" (click)="sortByCode()"># <i *ngIf="ind==0" class="fas fa-sort-down"></i></h3>
+      <h3 class="box20" (click)="sortByCity()">City <i *ngIf="ind==1" class="fas fa-sort-down"></i></h3>
+      <h3 class="box10" (click)="sortByArea()">Area <i *ngIf="ind==2" class="fas fa-sort-down"></i></h3>
+      <h3 class="box20" (click)="sortByStreet()">Place <i *ngIf="ind==3" class="fas fa-sort-down"></i></h3>
+      <h3 class="box30" (click)="sortByDistance()">Capacity <i *ngIf="ind==4" class="fas fa-sort-down"></i></h3>
+    </div>
+    <div *ngFor="let measure of measurements; let i=index;">
+      <app-measurement-element *ngIf="contain(i);" [heightGarbage]="heightGarbage" [measurement]="measure" [isShowDetails]="indexShow==i"
+        (click)="changeIndexShow(i);" [index]="i"></app-measurement-element>
+    </div>
+  </section>
+</div>

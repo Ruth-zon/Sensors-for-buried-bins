@@ -1,0 +1,101 @@
+<form novalidate  [formGroup]="formUser">
+  <div class="form-group input-group mb-3 " >
+    <div class="input-group-prepend">
+      <span class="input-group-text"><i class="fa fa-id-card"></i></span>
+    </div>
+    <input [readonly]="!isAdd" class="form-control" type="text" aria-describedby="firstNameHelp" [ngClass]="{
+      'is-invalid':formUser.controls.id.invalid && formUser.controls.id.dirty,
+      'is-valid':formUser.controls.id.valid && formUser.controls.id.dirty }"
+      placeholder="id" pattern="[0-9]{9}" [(ngModel)]="user.Id" name="id" formControlName="id"> 
+    <div class="valid-feedback">Valid.</div>
+    <div class="invalid-feedback">Please fill out this field with 9 numbers.</div>
+  </div>
+  <div class="form-group input-group mb-3">
+
+        <div class="input-group-prepend">
+          <span class="input-group-text"><i class="fa fa-key"></i></span>
+        </div>
+        <input class="form-control" type="password" [ngClass]="{
+            'is-invalid':formUser.controls.password.invalid && formUser.controls.password.dirty,
+            'is-valid':formUser.controls.password.valid && formUser.controls.password.dirty}" id="pswd" placeholder="password" name="pswd"
+          required [(ngModel)]="user.Password" formControlName="password">
+
+      <div class="valid-feedback">Valid.</div>
+      <div class="invalid-feedback">Please fill out this field.</div>
+    </div>
+  <div class="form-group input-group mb-3">
+   
+      <div class="input-group-prepend">
+        <span class="input-group-text"><i class="fa fa-user"></i></span>
+      </div>
+      <input type="text" [ngClass]="{
+        'form-control': true,
+        'is-invalid':formUser.controls.firstName.invalid && formUser.controls.firstName.dirty,
+        'is-valid':formUser.controls.firstName.valid && formUser.controls.firstName.dirty }"
+         placeholder="First Name" [(ngModel)]="user.FirstName" name="first" formControlName="firstName" pattern="[A-Z][a-z]{1,15}">
+      <input type="text"  [ngClass]="{
+        'form-control': true,
+        'is-invalid':formUser.controls.lastName.invalid && formUser.controls.lastName.dirty,
+        'is-valid':formUser.controls.lastName.valid && formUser.controls.lastName.dirty }"
+         placeholder="Last Name" [(ngModel)]="user.LastName" name="last" formControlName="lastName" pattern="[A-Z][a-z]{1,15}">
+   
+    <div class="valid-feedback">Valid.</div>
+    <div class="invalid-feedback">Please fill out this field.</div>
+
+  </div>
+  
+  <div class="form-group input-group mb-3">
+
+      <div class="input-group-prepend">
+        <span class="input-group-text"><i class="fa fa-phone"></i></span>
+      </div>
+      <input type="text" [ngClass]="{
+        'form-control': true,
+        'is-invalid':formUser.controls.phone.invalid && formUser.controls.phone.dirty,
+        'is-valid':formUser.controls.phone.valid && formUser.controls.phone.dirty }"
+         id="phone" placeholder="Phone" name="phone" [(ngModel)]="user.Phone" formControlName="phone">
+
+
+  </div>
+  <div class="form-group input-group mb-3">
+
+      <div class="input-group-prepend">
+        <span class="input-group-text"><i class="fa fa-map-marker"></i></span>
+      </div>
+      <input type="text" [ngClass]="{
+        'form-control': true,
+        'is-invalid':formUser.controls.area.invalid && formUser.controls.area.dirty,
+        'is-valid':formUser.controls.area.valid && formUser.controls.area.dirty }"
+         id="area" placeholder="Area" name="area" [(ngModel)]="user.Area" formControlName="area">
+         <div class="valid-feedback">Valid.</div>
+    <div class="invalid-feedback">Please fill out this field.</div>
+  </div>
+  <div class="form-group input-group mb-3">
+    
+      <div class="input-group-prepend">
+        <span class="input-group-text"><i class="fa fa-graduation-cap"></i></span>
+      </div>
+      <div class="dropdown">
+        
+          <button type="button" class="btn btn-light dropdown-toggle col-sm-12" data-toggle="dropdown" [ngClass]="{
+            'form-control': true,
+            'is-invalid':formUser.controls.job.invalid && formUser.controls.job.dirty,
+            'is-valid':formUser.controls.job.valid && formUser.controls.job.dirty} ">
+            {{actualjob}}
+          </button>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" (click)="chooseJob('Manager')">Manager</a>
+            <a class="dropdown-item" (click)="chooseJob('Municipality Worker')">Municipality Worker</a>
+            <a class="dropdown-item" (click)="chooseJob('Truck Worker')">Truck Worker</a>
+          </div>
+      
+      <div class="valid-feedback">Valid.</div>
+      <div class="invalid-feedback">Please fill out this field.</div>
+    </div>
+  </div>
+  <button class="btn btn-primary" (click)="addOrUpdate()">{{(isAdd)?'Add':'Update'}}</button>
+</form>
+  
+
+
+ <!-- *ngIf="clicked" -->

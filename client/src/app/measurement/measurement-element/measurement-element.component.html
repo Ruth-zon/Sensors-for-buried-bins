@@ -1,0 +1,24 @@
+<div class="border">
+  <div *ngIf="!(isShowDetails)" class="wapper">
+    <h3 class="box20">{{measurement.Garbage.GarbageCode}}.</h3>
+    <span class="box20">{{measurement.Garbage.City}}</span>
+    <span class="box10">{{measurement.Garbage.Area}}</span>
+    <span class="box40">{{measurement.Garbage.Street}}</span>
+    <span class="box10" [title]="((heightGarbage-measurement.Distance) / heightGarbage) | percent">
+      <i [ngClass]="{'fa': true,'fa-rotate-270':true,
+       'fa-battery-full': ((heightGarbage-measurement.Distance) / heightGarbage)>=0.8,
+          'fa-battery-three-quarters': 0.8>((heightGarbage-measurement.Distance) / heightGarbage) &&((heightGarbage-measurement.Distance) / heightGarbage)>=0.5,
+          'fa-battery-half': 0.5>((heightGarbage-measurement.Distance) / heightGarbage) &&((heightGarbage-measurement.Distance) / heightGarbage)>=0.25,
+          'fa-battery-quarter': 0.25>((heightGarbage-measurement.Distance) / heightGarbage) &&((heightGarbage-measurement.Distance) / heightGarbage)>=0.05,
+          'fa-battery-empty': 0.05>((heightGarbage-measurement.Distance) / heightGarbage)}"
+          [style.color]="((heightGarbage-measurement.Distance) / heightGarbage)>=0.8?'red':'black'">
+        </i>
+        <!-- <i  [ngClass]="{'fa': true, 'fa-battery-full': ((heightGarbage-measurement.Distance) / heightGarbage)>=0.8"></i> -->
+   </span>  
+    
+  </div>
+  <div  *ngIf="isShowDetails" class="wapper">
+    <h3 class="box">{{measurement.Garbage.GarbageCode}}.</h3>
+    <app-measurement-details [measurement]="measurement"class="boxDetails"></app-measurement-details>
+  </div>
+</div>

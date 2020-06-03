@@ -1,0 +1,43 @@
+<div class="table-responsive" style="overflow-x:auto;">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Garbage Code</th>
+        <th scope="col">City</th>
+        <th scope="col">Area</th>
+        <th scope="col">Place</th>
+        <th scope="col">Sensor Name</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let garbage of garbages; let i of index;">
+        <td scope="row">{{garbage.GarbageCode}}</td>
+        <td>{{garbage.City}}</td>
+        <td>{{garbage.Area}}</td>
+        <td>{{garbage.Street}}</td>
+        <td>{{garbage.SensorName}}</td>
+        <td><i class="edit" data-toggle="modal" [style.color]="overEdit==i?'rgb(65, 121, 240)':'grey'" (mouseover)="overEdit=i"
+            (mouseout)="overEdit=-1" (click)="openUpdate(garbage)" class="fa fa-pencil-alt"></i></td>
+        <td><i (click)="delete(garbage)" [style.color]="overDel==i?'rgb(65, 121, 240)':'grey'" (mouseover)="overDel=i" (mouseout)="overDel=-1"
+            class="fas fa-trash-alt"></i></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div *ngIf="isOpenUpdate" class="swal2-container swal2-center swal2-fade swal2-shown" style="overflow-y: auto;">
+    <div aria-labelledby="swal2-title" aria-describedby="swal2-content" class="swal2-popup swal2-modal swal2-show" tabindex="-1"
+      role="dialog" aria-live="assertive" aria-modal="true" style="display: flex;">
+
+      <div class="swal2-header">
+        <h1><b>Update</b></h1>
+        <button (click)="isOpenUpdate=false" type="button" class="swal2-close" aria-label="Close this dialog" style="display: flex;">×</button>
+      </div>
+      <div class="swal2-icon swal2-info swal2-animate-info-icon" style="display: flex;"></div>
+      <app-add-garbage (isUpdated)="update()" [garbage]='currentGarbage'></app-add-garbage>
+
+    </div>
+  </div>
+
+</div>

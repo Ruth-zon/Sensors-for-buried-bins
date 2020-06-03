@@ -1,0 +1,44 @@
+h1{
+    text-align: center;
+}
+img{
+    height: 50px;
+    float: left;
+}
+@media (max-width: 420px) {
+    h1{
+        font-size: 20pt;
+        margin-top: 10px;
+    }
+    img{
+        height: 30px;
+    }
+}
+.page-layout {
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: min-content 1fr 70px;
+    grid-template-columns: 1fr;
+    grid-template-areas: "header"
+                         "section"
+                         "footer";
+}
+header {
+    position: -webkit-sticky; 
+    position: sticky;
+    top: 0;
+    grid-area: header;
+    background-color: #224d25;
+    color: rgb(240, 248, 241);
+    font-family: 'Chaparral Pro Light';
+    z-index: 1;
+}
+section {
+    margin: auto 12%;
+    grid-area: section;
+}
+footer {
+    grid-area: footer;
+    background-image: url("../../assets/img/little.jpg");
+    background-repeat: repeat;
+}

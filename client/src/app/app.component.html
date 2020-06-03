@@ -1,0 +1,12 @@
+<div class="page-layout">
+  <header>
+      <h1><img src="assets/img/logo2.png">Garbage Collector </h1>
+      <app-menu *ngIf="_userService.isLogin"></app-menu>
+  </header>
+
+  <section>
+      <router-outlet></router-outlet>
+  </section>
+  <footer>
+  </footer>
+</div>

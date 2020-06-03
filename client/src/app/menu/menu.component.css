@@ -1,0 +1,14 @@
+.bold{
+    font:bold;
+}
+@media (max-width: 420px) {
+    .small{
+        font-size: 16pt;
+    }
+}
+i{
+    font-size: 36px;
+}
+.nav-link.active, .nav-tabs .nav-item.show .nav-link {
+    background-color:  rgb(240, 248, 241);
+}

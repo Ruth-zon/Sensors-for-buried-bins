@@ -1,0 +1,33 @@
+<form novalidate [formGroup]="formLogin">
+  <div class="form-group">
+    <div class="input-group mb-3 ">
+      <div class="input-group-prepend">
+        <span class="input-group-text"><i class="fa fa-id-card"></i></span>
+      </div>
+      <input class="form-control" type="text" [ngClass]="{
+      'is-invalid':formLogin.controls.id.invalid &&( formLogin.controls.id.dirty|| wasErrorId),
+      'is-valid':formLogin.controls.id.valid && formLogin.controls.id.dirty}"
+       placeholder="id" pattern="[0-9]{9}"
+        [(ngModel)]="id" name="id" formControlName="id">
+      <div class="valid-feedback">Valid.</div>
+      <div class="invalid-feedback">Please fill out this field with 9 numbers.</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class=" input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text"><i class="fa fa-key"></i></span>
+      </div>
+      <input class="form-control" type="password" [ngClass]="{
+          'is-invalid':formLogin.controls.password.invalid && (formLogin.controls.password.dirty || wasErrorPassword),
+          'is-valid':formLogin.controls.password.valid && formLogin.controls.password.dirty}" id="pwd" placeholder="password" name="pswd"
+        required [(ngModel)]="password" formControlName="password">
+    
+    <div class="valid-feedback">Valid.</div>
+    <div class="invalid-feedback">Please fill out this field.</div>
+  </div>
+  </div>
+  
+  <button class="btn btn-primary" (click)="login()">Login</button>
+  
+</form>

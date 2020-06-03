@@ -1,0 +1,20 @@
+<agm-map [latitude]='latitude' [longitude]='longitude' [zoom]='zoom' [minZoom]='minZoom'>
+    <div  *ngIf="!isTruckWorker">
+    <agm-marker
+    *ngFor="let marker of markers" [latitude]="marker.latitude" [longitude]="marker.longitude" [opacity]="1" [markerDraggable]="false"
+        label="{{marker.measurement.Garbage.GarbageCode}}" [iconUrl]="full(marker.measurement)?red:blue">
+        <agm-info-window class="center">
+            <strong>
+                city: {{marker.measurement.Garbage.City}}<br>
+                area: {{marker.measurement.Garbage.Area}}<br>
+                street: {{marker.measurement.Garbage.Street}}<br>
+                measure: {{marker.measurement.Distance}}<br>
+                measurement time : {{marker.measurement.MeasurementTime}}<br>
+            </strong>
+        </agm-info-window>
+    </agm-marker>
+</div>
+     <agm-direction *ngIf="isTruckWorker && origin!=undefined && destination!=undefined"
+     [origin]="origin" [destination]="destination" [waypoints]="waypoints"></agm-direction> 
+
+</agm-map>

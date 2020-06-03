@@ -1,0 +1,112 @@
+<div class="signup-form">
+    <form [formGroup]="formGarbage" (change)="isGarbageChange=true;">
+        <h2>Garbage</h2>
+        <div class="form-group">
+            <span>Height</span>
+            <div class="input-group mb-3 ">
+                <input type="number" min="0" class="form-control" formControlName="garbageHeight" name="garbageHeight" required="required"
+                    [(ngModel)]="heightOfGarbage" >
+                <div class="input-group-append">
+                    <span class="input-group-text">cm</span>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <span>Width</span>
+            <div class="input-group mb-3 ">
+                <input type="number" min="0" class="form-control" formControlName="garbageWidth" name="garbageWidth" required="required"
+                    [(ngModel)]="widthOfGarbage" >
+                <div class="input-group-append">
+                    <span class="input-group-text">cm</span>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <span>Length</span>
+            <div class="input-group mb-3 ">
+                <input type="number" min="0" class="form-control" formControlName="garbageLength" name="garbageLength" required="required"
+                    [(ngModel)]="lengthOfGarbage">
+                <div class="input-group-append">
+                    <span class="input-group-text">cm</span>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <span>The height of the tin that requires its evacuation</span>
+            <div class="input-group mb-3 ">
+                <input type="number" min="0" class="form-control" formControlName="garbageMaxHeight" name="garbageMaxHeight" required="required"
+                    [(ngModel)]="maxHeight">
+                <div class="input-group-append">
+                    <span class="input-group-text">cm</span>
+                </div>
+            </div>
+        </div>
+        <div class="form-group" *ngIf="isGarbageChange">
+            <div class="row">
+                <div class="col-6"><button (click)="saveGarbage()" type="button" class="btn btn-success btn-lg btn-block">Save</button></div>
+                <div class="col-6"><button (click)="cancelGarbage()" type="button" class="btn btn-danger btn-lg btn-block">Cancel</button></div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="signup-form">
+    <form [formGroup]="formTruck" (change)="isTruckChange=true;">
+        <h2>Truck</h2>
+        <div class="form-group">
+            <span>Capacity</span>
+            <div class="input-group mb-3 ">
+                <input type="number" min="0" class="form-control" formControlName="truckCapacity" name="truckCapacity" required="required"
+                    [(ngModel)]="truckCapacity">
+                <div class="input-group-append">
+                    <span class="input-group-text">cc</span>
+                </div>
+            </div>
+        </div>
+        <div class="form-group" *ngIf="isTruckChange">
+            <div class="row">
+                <div class="col-6"><button (click)="saveTruck()" type="button" class="btn btn-success btn-lg btn-block">Save</button></div>
+                <div class="col-6"><button (click)="cancelTruck()" type="button" class="btn btn-danger btn-lg btn-block">Cancel</button></div>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="signup-form">
+    <form [formGroup]="formDirection" (change)="isDirectionChange=true;">
+        <h2>Direction</h2>
+        <div class="form-group">
+            <span>Origin</span>
+            <input type="text" class="form-control" formControlName="directionOrigin" name="directionOrigin" required="required" [(ngModel)]="directionOrigin"
+                pattern="[0-9]{2}\.[0-9]{6}\,[0-9]{2}\.[0-9]{6}">
+        </div>
+        <div class="form-group">
+            <span>Destination</span>
+            <input type="text" class="form-control" formControlName="directionDestination" name="directionDestination" required="required"
+                [(ngModel)]="directionDestination" pattern="[0-9]{2}\.[0-9]{6}\,[0-9]{2}\.[0-9]{6}">
+        </div>
+        <div class="form-group" *ngIf="isDirectionChange">
+            <div class="row">
+                <div class="col-6"><button (click)="saveDirection()" type="button" class="btn btn-success btn-lg btn-block">Save</button></div>
+                <div class="col-6"><button (click)="cancelDirection()" type="button" class="btn btn-danger btn-lg btn-block">Cancel</button></div>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="small-line">
+    <div class="signup-form">
+        <form [formGroup]="formMeasurement" (change)="isMeasurementChange=true;">
+            <h2>Measurement</h2>
+            <div class="form-group">
+                <span>Delete until date</span>
+                <input type="date" class="form-control" formControlName="deleteDate" name="deleteDate" required="required" [(ngModel)]="deleteDate">
+            </div>
+            <div class="form-group" *ngIf="isMeasurementChange">
+                <div class="row">
+                    <div class="col-6"><button (click)="saveMeasurement()" type="button" class="btn btn-success btn-lg btn-block">Delete</button></div>
+                    <div class="col-6"><button (click)="cancelMeasurement()" type="button" class="btn btn-danger btn-lg btn-block">Cancel</button></div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="center"><button (click)="setDefaultSettings()" type="button" class="btn btn-info btn-lg btn-default">Restore default settings</button></div>

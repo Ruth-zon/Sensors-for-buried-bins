@@ -1,0 +1,19 @@
+agm-map {
+    height: 700px;
+    cursor: url("https://maps.gstatic.com/mapfiles/openhand_8_8.cur"), default;
+     
+ }
+ .center{
+     text-align: center;
+ }
+ @media (max-height: 500px) {
+    agm-map {
+        height: 300px;
+    }
+}
+@media (max-height: 650px) {
+    agm-map {
+        height: 450px;
+    }
+}
+

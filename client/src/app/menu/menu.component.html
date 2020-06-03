@@ -1,0 +1,38 @@
+<nav class="navbar-header">
+    <div class="container-fluid">
+      <!--navbar navbar-expand-sm bg-light navbar-light <div class="navbar-header">
+          <a class="navbar-brand">garbage collector</a>
+        </div> -->
+      <ul class="nav nav-tabs">
+        <li [ngClass]="{'nav-item':true, 'bold':indexActive==1}" routerLink="" (click)="indexActive=1;" title="home">
+
+          <a class="nav-link" [ngClass]="{'active':indexActive==1}"> <i class="fas fa-home small"></i></a>
+        </li>
+        <li [ngClass]="{'nav-item':true}" routerLink="measurement" (click)="indexActive=2;" title="measurement">
+          <a class="nav-link" [ngClass]="{'active':indexActive==2}"><i class="fas fa-ruler small"></i></a>
+        </li>
+        <li [ngClass]="{'nav-item':true}" routerLink="measurement/map" (click)="indexActive=3;" title="measurement map">
+          <a class="nav-link" [ngClass]="{'active':indexActive==3}"><i class="fas fa-map-marked small"></i></a>
+        </li>
+        <li *ngIf="isManager()" [ngClass]="{'nav-item':true}" (click)="indexActive=4;" class="dropdown" title="manage users">
+          <a [ngClass]="{'active':indexActive==4}" class="dropdown-toggle col-sm-12 nav-link" data-toggle="dropdown">
+            <i class="fas fa-users small"></i></a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" routerLink="/user/add">new user</a>
+            <a class="dropdown-item" routerLink="/user">users list</a>
+          </div>
+        </li>
+        <li *ngIf="isManager()" [ngClass]="{'nav-item':true}" (click)="indexActive=5;" class="dropdown" title="manage garbages">
+          <a [ngClass]="{'active':indexActive==5}" class="dropdown-toggle col-sm-12 nav-link" data-toggle="dropdown">
+            <i class="fas fa-trash small"></i></a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" routerLink="/garbage/add">new garbage</a>
+            <a class="dropdown-item" routerLink="/garbage">garbages list</a>
+          </div>
+        </li>
+        <li *ngIf="isManager()" [ngClass]="{'nav-item':true}" routerLink="setting" (click)="indexActive=6;" title="settings">
+          <a class="nav-link" [ngClass]="{'active':indexActive==6}"><i class="fas fa-cog small"></i></a>
+        </li>
+      </ul>
+  </div>
+</nav>
